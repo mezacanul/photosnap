@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store";
 import { cn } from "../../utils/cn";
+import { Link } from "react-router-dom";
 
 export default function Header() {
     const header = useSelector(
@@ -12,11 +13,13 @@ export default function Header() {
 
     return (
         <div className="grid grid-cols-3 items-center px-container h-[5rem]">
-            <img
-                src={logo.dark}
-                className="w-[12rem]"
-                alt="Logo"
-            />
+            <Link to="/">
+                <img
+                    src={logo.dark}
+                    className="w-[12rem]"
+                    alt="Logo"
+                />
+            </Link>
 
             <div className="flex justify-around">
                 {header.items.map(
@@ -24,13 +27,13 @@ export default function Header() {
                         title: string;
                         href: string;
                     }) => (
-                        <a
-                            href={item.href}
+                        <Link
+                            to={item.href}
                             key={item.title}
                             className="hover:font-bold transition-all duration-300"
                         >
                             {item.title}
-                        </a>
+                        </Link>
                     )
                 )}
             </div>
