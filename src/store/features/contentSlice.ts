@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { enContent } from "../../cdn/enContent";
-// import { esContent } from "../../cdn/esContent";
+import enContent from "../../cdn/enContent";
+// import esContent from "../../cdn/esContent";
 
 export const contentSlice = createSlice({
     name: "content",

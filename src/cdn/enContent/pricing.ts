@@ -1,5 +1,6 @@
 export default {
     hero: {
+        image: "/images/pricing/desktop/hero.jpg",
         title: "PRICING",
         description:
             "Create a your stories, Photosnap is a platform for photographers and visual storytellers. It's the simple way to create and share your photos.",

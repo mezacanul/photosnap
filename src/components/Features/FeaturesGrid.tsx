@@ -1,0 +1,21 @@
+import FeatureItem from "./FeatureItem";
+import type { FeatureProps } from "../../types";
+
+export default function FeaturesGrid({
+    items,
+}: {
+    items: FeatureProps[];
+}) {
+    return (
+        <div className="grid grid-cols-3 px-container gap-10 py-[8rem]">
+            {items.map((item: FeatureProps) => (
+                <FeatureItem
+                    key={item.image}
+                    image={item.image}
+                    title={item.title}
+                    description={item.description}
+                />
+            ))}
+        </div>
+    );
+}
