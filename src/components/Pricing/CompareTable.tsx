@@ -45,6 +45,7 @@ export default function CompareTable({
 
                 {tableData.tbody.map((item: any) => (
                     <div
+                        key={item[0]}
                         className={cn(
                             cns.tableContainer,
                             "py-5 border-b border-neutral-500"

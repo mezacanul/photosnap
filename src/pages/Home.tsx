@@ -3,17 +3,17 @@ import StoriesGrid from "../components/Stories/StoriesGrid";
 import FeaturesGrid from "../components/Features/FeaturesGrid";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store";
+import {
+    selectFeatures,
+    selectStories,
+} from "../store/features/contentSlice";
 
 export default function Home() {
     const { hero, about } = useSelector(
         (state: RootState) => state.content.home
     );
-    const stories = useSelector((state: RootState) =>
-        state.content.stories.items.slice(0, 4)
-    );
-    const features = useSelector((state: RootState) =>
-        state.content.features.items.slice(0, 3)
-    );
+    const stories = useSelector(selectStories);
+    const features = useSelector(selectFeatures);
     return (
         <>
             <Section
