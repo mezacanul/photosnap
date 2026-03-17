@@ -5,14 +5,14 @@ import { useSelector } from "react-redux";
 interface ArrowButtonProps {
     type: "dark" | "light";
     title: string;
-    hoverType?: "gap" | "margin";
     className?: string;
+    hover?: "gap" | "underline";
 }
 export default function ArrowButton({
     type,
     title,
-    hoverType = "gap",
     className,
+    hover = "gap",
 }: ArrowButtonProps) {
     const { arrow } = useSelector(
         (state: RootState) => state.content.images
@@ -26,7 +26,9 @@ export default function ArrowButton({
                     ? "text-white"
                     : "text-black",
                 "transition-all duration-300",
-                hoverType === "gap" ? "hover:gap-13" : ""
+                hover === "gap"
+                    ? "hover:gap-13"
+                    : "border-b-2 border-transparent pb-1 hover:border-white"
             )}
         >
             {title}

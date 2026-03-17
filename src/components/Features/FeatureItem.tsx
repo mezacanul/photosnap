@@ -19,7 +19,9 @@ export default function FeatureItem({
                     alt={title}
                 />
             </div>
-            <h1 className="text-center text-4">{title}</h1>
+            <h1 className="text-center text-4-bold">
+                {title}
+            </h1>
             <p className="text-center text-5-regular">
                 {description}
             </p>

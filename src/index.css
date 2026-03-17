@@ -25,6 +25,10 @@
         @apply px-4 md:px-6 lg:px-[10rem];
     }
 
+    .px-content {
+        @apply px-4 md:px-6 lg:px-[6rem];
+    }
+
     .gradient-fade {
         @apply absolute inset-0 w-full h-full;
         background: linear-gradient(
@@ -49,12 +53,15 @@
         @apply text-[50px]/[120%] tracking-[4px] font-bold;
     }
     .text-2 {
-        @apply text-[32px]/[125%] tracking-[3.5px] font-bold;
+        @apply text-[40px]/[125%] tracking-[3.5px] font-bold;
     }
     .text-3 {
         @apply text-[24px]/[105%] tracking-[0] font-bold;
     }
-    .text-4 {
+    .text-4-regular {
+        @apply text-[18px]/[140%] tracking-[0] font-normal;
+    }
+    .text-4-bold {
         @apply text-[18px]/[140%] tracking-[0] font-bold;
     }
     .text-5-bold {

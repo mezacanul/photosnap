@@ -4,7 +4,7 @@ import ArrowButton from "./ArrowButton";
 interface SectionProps {
     title: string;
     description: string;
-    button: string;
+    button?: string;
     image: string;
     type?: "light" | "dark";
     height?: string;
@@ -14,7 +14,7 @@ interface SectionProps {
 function Section({
     title,
     description,
-    button,
+    button = "",
     image,
     type = "dark",
     height = "h-[70vh]",

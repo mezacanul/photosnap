@@ -57,10 +57,12 @@ export default function Footer() {
                 <ArrowButton
                     type="dark"
                     title={button}
-                    hoverType="margin"
+                    hover="underline"
                     className="text-6-regular"
                 />
-                <p className="text-zinc-500 text-6-regular">{copyright}</p>
+                <p className="text-zinc-500 text-6-regular">
+                    {copyright}
+                </p>
             </div>
         </div>
     );
