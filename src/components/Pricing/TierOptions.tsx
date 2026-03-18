@@ -1,4 +1,3 @@
-import { useResponsive } from "../../hooks/useResponsive";
 import type { TierProps } from "../../types";
 import { cn } from "../../utils/cn";
 import PeriodToggle from "./PeriodToggle";
