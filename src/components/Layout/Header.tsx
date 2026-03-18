@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import type { RootState } from "../../store";
 import { cn } from "../../utils/cn";
 import { Link } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Header() {
     const header = useSelector(
@@ -12,16 +13,22 @@ export default function Header() {
     );
 
     return (
-        <div className="grid grid-cols-3 items-center px-container h-[5rem]">
+        <div
+            className={cn(
+                "items-center px-container h-[5rem]",
+                "flex justify-between",
+                "md:grid md:grid-cols-3"
+            )}
+        >
             <Link to="/">
                 <img
                     src={logo.dark}
-                    className="w-[12rem]"
+                    className="w-[10rem] md:w-[12rem]"
                     alt="Logo"
                 />
             </Link>
 
-            <div className="flex justify-around">
+            <div className="hidden md:flex justify-around">
                 {header.items.map(
                     (item: {
                         title: string;
@@ -38,7 +45,7 @@ export default function Header() {
                 )}
             </div>
 
-            <div className="flex justify-end">
+            <div className="hidden md:flex justify-end">
                 <button
                     className={cn(
                         "bg-neutral-900 text-white px-10 py-2",
@@ -49,6 +56,16 @@ export default function Header() {
                     {header.button}
                 </button>
             </div>
+            
+            <MobileNav />
+        </div>
+    );
+}
+
+function MobileNav() {
+    return (
+        <div className="block md:hidden">
+            <GiHamburgerMenu size={26} />
         </div>
     );
 }

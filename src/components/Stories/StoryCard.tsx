@@ -26,8 +26,11 @@ export default function StoryCard({
                 backgroundImage: `url(${imageFolder}${image})`,
             }}
         >
+            {/* Gradient */}
             <div className="gradient-fade" />
-            <div className="z-10 px-10 py-10">
+            
+            {/* Content */}
+            <div className="z-10 px-5 md:px-8 lg:px-10 py-10">
                 <div className="flex flex-col gap-1.5 pb-5 mb-5 border-b border-white/50">
                     <h1>{title}</h1>
                     <p className="text-6-regular">{`${authorPrefix} ${author}`}</p>

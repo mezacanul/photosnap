@@ -7,6 +7,7 @@ import {
     selectFeatures,
     selectStories,
 } from "../store/features/contentSlice";
+import { useResponsive } from "../hooks/useResponsive";
 
 export default function Home() {
     const { hero, about } = useSelector(
@@ -22,9 +23,13 @@ export default function Home() {
                 button={hero.button}
                 image={hero.image}
                 type="dark"
-                height="h-screen"
+                height="h-[90vh] md:h-screen"
                 direction="left"
-                cols="6fr 7fr"
+                cols={useResponsive([
+                    "7fr 6fr",
+                    "8fr 5fr",
+                    "6fr 7fr",
+                ])}
             />
             <Section
                 title={about[0].title}
@@ -32,7 +37,7 @@ export default function Home() {
                 button={about[0].button}
                 image={about[0].image}
                 type="light"
-                height="h-[75vh]"
+                // height="h-[75vh]"
                 // direction="left"
                 cols="7fr 6fr"
             />
@@ -42,7 +47,7 @@ export default function Home() {
                 button={about[1].button}
                 image={about[1].image}
                 type="light"
-                height="h-[75vh]"
+                // height="h-[75vh]"
                 direction="left"
                 cols="6fr 7fr"
             />

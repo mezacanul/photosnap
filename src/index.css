@@ -22,11 +22,11 @@
 
 @layer utilities {
     .px-container {
-        @apply px-4 md:px-6 lg:px-[10rem];
+        @apply px-[1rem] md:px-[2rem] lg:px-[10rem];
     }
 
     .px-content {
-        @apply px-4 md:px-6 lg:px-[6rem];
+        @apply px-4 md:px-[4rem] lg:px-[6rem];
     }
 
     .gradient-fade {
@@ -50,7 +50,7 @@
 
 @layer utilities {
     .text-1 {
-        @apply text-[50px]/[120%] tracking-[4px] font-bold;
+        @apply text-[35px]/[120%] md:text-[40px]/[120%] xl:text-[50px]/[120%] tracking-[4px] font-bold;
     }
     .text-2 {
         @apply text-[40px]/[125%] tracking-[3.5px] font-bold;
