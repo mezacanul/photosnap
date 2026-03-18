@@ -15,18 +15,21 @@ export default function Beta() {
             className={cn(
                 "bg-cover bg-center",
                 "py-[4rem] px-container flex justify-between items-center",
+                "flex-col md:flex-row gap-10 md:gap-0",
                 "text-white"
             )}
         >
-            <h1 className="text-2 max-w-[30%]">
+            <h1 className="text-2 w-full md:w-[60%] lg:w-[30%]">
                 {beta.title}
             </h1>
-            <ArrowButton
-                type="dark"
-                title={beta.button}
-                hover="underline"
-                className="text-6-regular"
-            />
+            <div className="w-full md:w-auto">
+                <ArrowButton
+                    type="dark"
+                    title={beta.button}
+                    hover="underline"
+                    className="text-6-regular"
+                />
+            </div>
         </div>
     );
 }

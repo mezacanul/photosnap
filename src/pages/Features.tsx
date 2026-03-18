@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useResponsive } from "../hooks/useResponsive";
 import type { RootState } from "../store";
 import Beta from "../components/Beta";
 import Section from "../components/Section";
@@ -13,9 +14,18 @@ export default function Features() {
             <Section
                 title={features.hero.title}
                 description={features.hero.description}
-                image={features.hero.image}
+                image={useResponsive([
+                    features.hero.image.main,
+                    features.hero.image.tablet,
+                    features.hero.image.main,
+                ])}
                 direction="left"
-                cols="2fr 3fr"
+                cols={useResponsive([
+                    "",
+                    "4fr 3fr",
+                    "2fr 3fr",
+                ])}
+                height="h-[90vh] md:h-[60vh]"
             />
             <FeaturesGrid items={features.items} />
             <Beta />

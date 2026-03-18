@@ -11,8 +11,9 @@ export default function FeaturesGrid({
         <div className="w-full px-container py-[8rem]">
             <div
                 className={cn(
-                    "grid grid-cols-1 lg:grid-cols-3 gap-x-18 gap-y-[7rem]",
-                    "w-full md:w-[60%] md:mx-auto lg:w-full"
+                    "grid gap-x-18 gap-y-[7rem]",
+                    "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+                    "w-full md:w-[80%] md:mx-auto lg:w-full"
                 )}
             >
                 {items.map((item: FeatureProps) => (

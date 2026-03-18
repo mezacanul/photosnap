@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store";
 import ArrowButton from "../ArrowButton";
+import { cn } from "../../utils/cn";
 
 export default function Hero() {
     const hero = useSelector(
@@ -8,12 +9,29 @@ export default function Hero() {
     );
     return (
         <div
-            className="h-[80vh] w-full px-content flex items-center bg-cover bg-center"
+            className={cn(
+                "w-full flex items-center bg-cover bg-center",
+                "h-[90vh] md:h-[80vh] flex-col md:flex-row"
+            )}
             style={{
                 backgroundImage: `url(${hero.image})`,
             }}
         >
-            <div className="w-[35%] flex flex-col gap-6 items-start text-white">
+            <div
+                className="block md:hidden w-full h-[40vh] bg-cover bg-center"
+                style={{
+                    backgroundImage: `url(${hero.image})`,
+                }}
+            />
+            <div
+                className={cn(
+                    "flex flex-col gap-6 items-start text-white px-content",
+                    "w-full md:w-[70%] lg:w-[35%]",
+                    "gap-3 md:gap-6",
+                    "bg-black md:bg-transparent",
+                    "h-[60vh] md:h-full justify-center"
+                )}
+            >
                 <p className="text-5-bold">
                     {hero.subtitle}
                 </p>

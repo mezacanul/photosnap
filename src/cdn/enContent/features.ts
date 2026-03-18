@@ -1,6 +1,9 @@
 export default {
     hero: {
-        image: "/images/features/desktop/hero.jpg",
+        image: {
+            main: "/images/features/desktop/hero.jpg",
+            tablet: "/images/features/tablet/hero.jpg",
+        },
         title: "FEATURES",
         description:
             "We make sure all of our features are designed to be loved by every aspiring and even professional photographers who wanted to share their stories.",
