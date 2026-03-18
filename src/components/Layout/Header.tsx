@@ -3,6 +3,9 @@ import type { RootState } from "../../store";
 import { cn } from "../../utils/cn";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useState } from "react";
+import { IoMdClose } from "react-icons/io";
+import type { NavItem } from "../../types";
 
 export default function Header() {
     const header = useSelector(
@@ -29,20 +32,15 @@ export default function Header() {
             </Link>
 
             <div className="hidden md:flex justify-around">
-                {header.items.map(
-                    (item: {
-                        title: string;
-                        href: string;
-                    }) => (
-                        <Link
-                            to={item.href}
-                            key={item.title}
-                            className="hover:font-bold transition-all duration-300"
-                        >
-                            {item.title}
-                        </Link>
-                    )
-                )}
+                {header.items.map((item: NavItem) => (
+                    <Link
+                        to={item.href}
+                        key={item.title}
+                        className="hover:font-bold transition-all duration-300"
+                    >
+                        {item.title}
+                    </Link>
+                ))}
             </div>
 
             <div className="hidden md:flex justify-end">
@@ -56,16 +54,59 @@ export default function Header() {
                     {header.button}
                 </button>
             </div>
-            
-            <MobileNav />
+
+            <MobileNav
+                items={header.items}
+                button={header.button}
+            />
         </div>
     );
 }
 
-function MobileNav() {
+function MobileNav({
+    items,
+    button,
+}: {
+    items: NavItem[];
+    button: string;
+}) {
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <div className="block md:hidden">
-            <GiHamburgerMenu size={26} />
+            <div onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? (
+                    <IoMdClose size={26} />
+                ) : (
+                    <GiHamburgerMenu size={26} />
+                )}
+            </div>
+
+            {isOpen && (
+                <div className="fixed left-0 top-[9vh] bg-black/50 h-screen w-full">
+                    <style>{`html {
+                            overflow-y: hidden;
+                        }`}</style>
+                    <div className="bg-white flex flex-col items-center justify-center gap-4 py-6 px-8">
+                        {items.map((item: NavItem) => (
+                            <Link
+                                to={item.href}
+                                key={item.title}
+                                onClick={() =>
+                                    setIsOpen(false)
+                                }
+                            >
+                                {item.title}
+                            </Link>
+                        ))}
+
+                        <div className="pt-6 w-full border-t border-neutral-400/50">
+                            <button className="w-full py-4 text-white bg-black">
+                                {button}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import type { RootState } from "../../store";
 import { cn } from "../../utils/cn";
 import ArrowButton from "../ArrowButton";
 import { useResponsive } from "../../hooks/useResponsive";
-
-type NavItem = { title: string; href: string };
+import type { NavItem } from "../../types";
 
 export default function Footer() {
     const { logo } = useSelector(
@@ -31,11 +31,13 @@ export default function Footer() {
                 )}
             >
                 <div className="md:flex md:flex-col md:gap-6">
-                    <img
-                        src={logo.light}
-                        className="w-[12rem]"
-                        alt="Logo"
-                    />
+                    <Link to="/">
+                        <img
+                            src={logo.light}
+                            className="w-[12rem]"
+                            alt="Logo"
+                        />
+                    </Link>
                     {useResponsive([
                         null,
                         <MobileNav items={items} />,

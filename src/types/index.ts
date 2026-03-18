@@ -23,10 +23,13 @@ type CompareItemProps = [string, boolean, boolean, boolean];
 
 type PricingPeriod = "Monthly" | "Yearly";
 
+type NavItem = { title: string; href: string };
+
 export type {
     FeatureProps,
     StoryProps,
     TierProps,
     CompareItemProps,
     PricingPeriod,
+    NavItem,
 };
